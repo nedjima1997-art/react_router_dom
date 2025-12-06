@@ -1,6 +1,6 @@
 import { createBrowserRouter, createRoutesFromElements, Link, Outlet, Route, RouterProvider } from "react-router-dom";
 import { Home } from "./Components/Home";
-import { Data } from "./Components/Data";
+import { Data, DataLoader } from "./Components/Data";
 import { Contact } from "./Components/Contact";
 
 function App() {
@@ -8,7 +8,8 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element= {<Root/>}>
         <Route index element = {<Home/>}/>
-        <Route path="/data" element = {<Data/>}/>
+        <Route path="/data" element = {<Data/>} loader={DataLoader}/>
+        <Route path="/data/:id" element = {<Data/>} loader={DataLoader}/>
         <Route path="/contact" element = {<Contact/>}/>
 
       </Route>
